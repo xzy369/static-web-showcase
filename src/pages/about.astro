@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+const pages = await getCollection('pages');
+const aboutContent = pages.find(p => p.data.order === 1);
+const { Content } = await render(aboutContent);
+---
+
+<Layout title="关于我们" description="了解晨曦文化教育培训中心的八年教育历程">
+  <!-- Hero Banner -->
+  <section style="background: linear-gradient(135deg, #1a73e8, #0d47a1); padding: 80px 24px 60px; text-align: center; color: white;">
+    <h1 style="font-size: 40px; font-weight: 800; margin-bottom: 12px;">关于我们</h1>
+    <p style="font-size: 18px; opacity: 0.85;">八年教育初心，以爱育才，以智启航</p>
+  </section>
+
+  <!-- Content -->
+  <section style="padding: 60px 24px;">
+    <div style="max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 48px;">
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </section>
+</Layout>

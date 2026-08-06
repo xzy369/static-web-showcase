@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+const pages = await getCollection('pages');
+const coursesContent = pages.find(p => p.data.order === 2);
+const { Content } = await render(coursesContent);
+---
+
+<Layout title="课程介绍" description="初升高衔接班 / 高三冲刺班 / 一对一辅导">
+  <!-- Hero -->
+  <section style="background: linear-gradient(135deg, #1a73e8, #0d47a1); padding: 80px 24px 60px; text-align: center; color: white;">
+    <h1 style="font-size: 40px; font-weight: 800; margin-bottom: 12px;">课程介绍</h1>
+    <p style="font-size: 18px; opacity: 0.85;">专业课程体系，助力学业突破</p>
+  </section>
+
+  <!-- Course Cards -->
+  <section style="padding: 60px 24px; background: #f8f9fa;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px;">
+        <!-- Card 1 -->
+        <div style="background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.2s;">
+          <div style="background: linear-gradient(135deg, #1a73e8, #42a5f5); padding: 32px; text-align: center; color: white;">
+            <div style="font-size: 48px; margin-bottom: 12px;">🚀</div>
+            <h3 style="font-size: 22px; font-weight: 700;">初升高衔接班</h3>
+          </div>
+          <div style="padding: 24px;">
+            <p style="color: #666; font-size: 14px; margin-bottom: 16px;">为初三毕业生量身打造，提前适应高中学习节奏</p>
+            <ul style="color: #555; font-size: 14px; padding-left: 20px; margin-bottom: 16px;">
+              <li style="margin-bottom: 6px;">数学、物理、化学、英语</li>
+              <li style="margin-bottom: 6px;">每周检测跟踪进度</li>
+              <li style="margin-bottom: 6px;">小班制15人以内</li>
+            </ul>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: #1a73e8; font-weight: 700;">暑期6周 · 120课时</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div style="background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.2s;">
+          <div style="background: linear-gradient(135deg, #ff6d00, #ff9800); padding: 32px; text-align: center; color: white;">
+            <div style="font-size: 48px; margin-bottom: 12px;">🎯</div>
+            <h3 style="font-size: 22px; font-weight: 700;">高三冲刺班</h3>
+          </div>
+          <div style="padding: 24px;">
+            <p style="color: #666; font-size: 14px; margin-bottom: 16px;">针对高考重点难点精准突破，提升应试能力</p>
+            <ul style="color: #555; font-size: 14px; padding-left: 20px; margin-bottom: 16px;">
+              <li style="margin-bottom: 6px;">重点难点专项突破</li>
+              <li style="margin-bottom: 6px;">真题演练+模拟考试</li>
+              <li style="margin-bottom: 6px;">考前心理辅导</li>
+            </ul>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: #ff6d00; font-weight: 700;">全年滚动 · 灵活安排</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div style="background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.2s;">
+          <div style="background: linear-gradient(135deg, #43a047, #66bb6a); padding: 32px; text-align: center; color: white;">
+            <div style="font-size: 48px; margin-bottom: 12px;">🎓</div>
+            <h3 style="font-size: 22px; font-weight: 700;">一对一辅导</h3>
+          </div>
+          <div style="padding: 24px;">
+            <p style="color: #666; font-size: 14px; margin-bottom: 16px;">各年级个性化定制，灵活安排时间频次</p>
+            <ul style="color: #555; font-size: 14px; padding-left: 20px; margin-bottom: 16px;">
+              <li style="margin-bottom: 6px;">一对一定制教学</li>
+              <li style="margin-bottom: 6px;">月度学习报告</li>
+              <li style="margin-bottom: 6px;">家长实时跟踪</li>
+            </ul>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: #43a047; font-weight: 700;">灵活安排 · 按需定制</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center;">
+        <p style="color: #666; font-size: 16px; margin-bottom: 24px;">所有课程均提供免费试听，欢迎来电咨询或到校参观了解详情</p>
+        <a href="/contact" style="display: inline-block; padding: 14px 40px; background: #1a73e8; color: white; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 600;">免费试听</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    if (window.innerWidth <= 768) {
+      const grids = document.querySelectorAll('[style*="grid-template-columns: repeat(3"]');
+      grids.forEach(grid => { grid.style.gridTemplateColumns = '1fr'; });
+    }
+  </script>
+</Layout>

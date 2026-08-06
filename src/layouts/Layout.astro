@@ -1,0 +1,367 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = '晨曦文化教育培训中心 - 专注初高中衔接教育' } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: '首页' },
+  { href: '/about', label: '关于我们' },
+  { href: '/courses', label: '课程介绍' },
+  { href: '/contact', label: '联系我们' },
+];
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title} | 晨曦文化教育</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #1a73e8;
+      --primary-dark: #1558b0;
+      --accent: #ff6d00;
+      --white: #ffffff;
+      --bg: #f8f9fa;
+      --text: #333333;
+      --text-light: #666666;
+      --border: #e0e0e0;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --max-w: 1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--white);
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+      height: 64px;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-inner {
+      max-width: var(--max-w);
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+      background: rgba(26,115,232,0.08);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 16px 24px;
+      z-index: 999;
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a {
+      display: block;
+      padding: 12px 16px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .mobile-nav a:hover, .mobile-nav a.active {
+      background: rgba(26,115,232,0.08);
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ===== MAIN ===== */
+    .main {
+      margin-top: 64px;
+      flex: 1;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #1a1a2e;
+      color: #ccc;
+      padding: 48px 24px 24px;
+      margin-top: auto;
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer h3 {
+      color: var(--white);
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .footer p, .footer li {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .footer ul { list-style: none; }
+    .footer a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer a:hover { color: var(--accent); }
+    .footer-bottom {
+      max-width: var(--max-w);
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 13px;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    /* ===== UTILITY ===== */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section {
+      padding: 80px 0;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 16px;
+      margin-bottom: 48px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .btn-accent {
+      background: var(--accent);
+      color: white;
+    }
+    .btn-accent:hover { background: #e65c00; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-outline:hover { background: var(--primary); color: white; }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    /* Markdown content */
+    .prose { line-height: 1.8; }
+    .prose h1 { font-size: 28px; margin-bottom: 16px; color: var(--primary); }
+    .prose h2 { font-size: 22px; margin: 32px 0 12px; color: var(--text); }
+    .prose h3 { font-size: 18px; margin: 24px 0 8px; color: var(--text); }
+    .prose p { margin-bottom: 16px; }
+    .prose ul, .prose ol { margin-bottom: 16px; padding-left: 24px; }
+    .prose li { margin-bottom: 6px; }
+    .prose strong { color: var(--text); }
+    .prose table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    .prose th, .prose td { padding: 10px 16px; border: 1px solid var(--border); text-align: left; }
+    .prose th { background: var(--primary); color: white; }
+    .prose tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">晨</span>
+        晨曦文化
+      </a>
+      <ul class="nav-links">
+        {navLinks.map(link => (
+          <li>
+            <a href={link.href} class={Astro.url.pathname === link.href ? 'active' : ''}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <button class="hamburger" id="hamburger-btn" aria-label="菜单">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav">
+    {navLinks.map(link => (
+      <a href={link.href} class={Astro.url.pathname === link.href ? 'active' : ''}>
+        {link.label}
+      </a>
+    ))}
+  </div>
+
+  <main class="main">
+    <slot />
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>晨曦文化教育</h3>
+        <p>专注初高中衔接教育，八年来服务超过2000名学子。以爱育才，以智启航，助力每一位学生实现学业梦想。</p>
+      </div>
+      <div>
+        <h3>快速链接</h3>
+        <ul>
+          {navLinks.map(link => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3>联系我们</h3>
+        <ul>
+          <li>📍 衡阳市蒸湘区</li>
+          <li>📞 138-XXXX-XXXX</li>
+          <li>⏰ 周一至周日 8:30-20:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 晨曦文化教育培训中心 版权所有
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger?.addEventListener('click', () => {
+      mobileNav?.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
