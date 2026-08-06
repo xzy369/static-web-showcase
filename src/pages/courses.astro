@@ -9,85 +9,74 @@ const { Content } = await render(coursesContent);
 
 <Layout title="课程介绍" description="初升高衔接班 / 高三冲刺班 / 一对一辅导">
   <!-- Hero -->
-  <section style="background: linear-gradient(135deg, #1a73e8, #0d47a1); padding: 80px 24px 60px; text-align: center; color: white;">
-    <h1 style="font-size: 40px; font-weight: 800; margin-bottom: 12px;">课程介绍</h1>
-    <p style="font-size: 18px; opacity: 0.85;">专业课程体系，助力学业突破</p>
+  <section style="background: linear-gradient(160deg, #1e3a5f 0%, #2563eb 100%); padding: 100px 32px 80px; text-align: center; color: white;">
+    <h1 style="font-family: 'Noto Serif SC', serif; font-size: 44px; font-weight: 700; margin-bottom: 16px;">课程介绍</h1>
+    <p style="font-size: 17px; opacity: 0.85; max-width: 560px; margin: 0 auto;">三大课程体系，覆盖初高中全阶段</p>
   </section>
 
   <!-- Course Cards -->
-  <section style="padding: 60px 24px; background: #f8f9fa;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px;">
-        <!-- Card 1 -->
-        <div style="background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.2s;">
-          <div style="background: linear-gradient(135deg, #1a73e8, #42a5f5); padding: 32px; text-align: center; color: white;">
-            <div style="font-size: 48px; margin-bottom: 12px;">🚀</div>
-            <h3 style="font-size: 22px; font-weight: 700;">初升高衔接班</h3>
-          </div>
-          <div style="padding: 24px;">
-            <p style="color: #666; font-size: 14px; margin-bottom: 16px;">为初三毕业生量身打造，提前适应高中学习节奏</p>
-            <ul style="color: #555; font-size: 14px; padding-left: 20px; margin-bottom: 16px;">
-              <li style="margin-bottom: 6px;">数学、物理、化学、英语</li>
-              <li style="margin-bottom: 6px;">每周检测跟踪进度</li>
-              <li style="margin-bottom: 6px;">小班制15人以内</li>
-            </ul>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="color: #1a73e8; font-weight: 700;">暑期6周 · 120课时</span>
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 64px;">
+        <!-- Course 1 -->
+        <div class="card fade-in" style="border-top: 4px solid #2563eb; padding: 0; overflow: hidden;">
+          <div style="padding: 36px 32px 32px;">
+            <div style="display: inline-block; padding: 4px 14px; background: #eff6ff; color: #2563eb; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 16px;">🔥 热门</div>
+            <h3 style="font-family: 'Noto Serif SC', serif; font-size: 22px; margin-bottom: 12px; color: #1e293b;">初升高衔接班</h3>
+            <p style="color: #64748b; font-size: 14px; line-height: 1.8; margin-bottom: 20px;">针对初三毕业生，提前预习高中知识，帮助学生顺利度过衔接期。涵盖数学、物理、化学三科。</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+              <span style="padding: 4px 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #64748b;">📅 6-8月</span>
+              <span style="padding: 4px 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #64748b;">👥 15人/班</span>
+              <span style="padding: 4px 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #64748b;">⏰ 周一至周五</span>
             </div>
+            <div style="font-family: 'Noto Serif SC', serif; font-size: 28px; font-weight: 700; color: #2563eb; margin-bottom: 20px;">¥1,980<span style="font-size: 14px; font-weight: 400; color: #94a3b8;">/期</span></div>
+            <a href="/contact" class="btn btn-primary" style="width: 100%; text-align: center;">立即咨询</a>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div style="background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.2s;">
-          <div style="background: linear-gradient(135deg, #ff6d00, #ff9800); padding: 32px; text-align: center; color: white;">
-            <div style="font-size: 48px; margin-bottom: 12px;">🎯</div>
-            <h3 style="font-size: 22px; font-weight: 700;">高三冲刺班</h3>
-          </div>
-          <div style="padding: 24px;">
-            <p style="color: #666; font-size: 14px; margin-bottom: 16px;">针对高考重点难点精准突破，提升应试能力</p>
-            <ul style="color: #555; font-size: 14px; padding-left: 20px; margin-bottom: 16px;">
-              <li style="margin-bottom: 6px;">重点难点专项突破</li>
-              <li style="margin-bottom: 6px;">真题演练+模拟考试</li>
-              <li style="margin-bottom: 6px;">考前心理辅导</li>
-            </ul>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="color: #ff6d00; font-weight: 700;">全年滚动 · 灵活安排</span>
+        <!-- Course 2 -->
+        <div class="card fade-in" style="border-top: 4px solid #f97316; padding: 0; overflow: hidden;">
+          <div style="padding: 36px 32px 32px;">
+            <div style="display: inline-block; padding: 4px 14px; background: #fff7ed; color: #f97316; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 16px;">⚡ 冲刺</div>
+            <h3 style="font-family: 'Noto Serif SC', serif; font-size: 22px; margin-bottom: 12px; color: #1e293b;">高三冲刺班</h3>
+            <p style="color: #64748b; font-size: 14px; line-height: 1.8; margin-bottom: 20px;">针对高三学生，重点突破高考考点，查漏补缺，提升应试能力。小班精准辅导。</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+              <span style="padding: 4px 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #64748b;">📅 12月起</span>
+              <span style="padding: 4px 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #64748b;">👥 10人/班</span>
+              <span style="padding: 4px 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #64748b;">⏰ 周末</span>
             </div>
+            <div style="font-family: 'Noto Serif SC', serif; font-size: 28px; font-weight: 700; color: #f97316; margin-bottom: 20px;">¥2,480<span style="font-size: 14px; font-weight: 400; color: #94a3b8;">/期</span></div>
+            <a href="/contact" class="btn btn-accent" style="width: 100%; text-align: center;">立即咨询</a>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div style="background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.2s;">
-          <div style="background: linear-gradient(135deg, #43a047, #66bb6a); padding: 32px; text-align: center; color: white;">
-            <div style="font-size: 48px; margin-bottom: 12px;">🎓</div>
-            <h3 style="font-size: 22px; font-weight: 700;">一对一辅导</h3>
-          </div>
-          <div style="padding: 24px;">
-            <p style="color: #666; font-size: 14px; margin-bottom: 16px;">各年级个性化定制，灵活安排时间频次</p>
-            <ul style="color: #555; font-size: 14px; padding-left: 20px; margin-bottom: 16px;">
-              <li style="margin-bottom: 6px;">一对一定制教学</li>
-              <li style="margin-bottom: 6px;">月度学习报告</li>
-              <li style="margin-bottom: 6px;">家长实时跟踪</li>
-            </ul>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="color: #43a047; font-weight: 700;">灵活安排 · 按需定制</span>
+        <!-- Course 3 -->
+        <div class="card fade-in" style="border-top: 4px solid #10b981; padding: 0; overflow: hidden;">
+          <div style="padding: 36px 32px 32px;">
+            <div style="display: inline-block; padding: 4px 14px; background: #ecfdf5; color: #10b981; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 16px;">🎯 专属</div>
+            <h3 style="font-family: 'Noto Serif SC', serif; font-size: 22px; margin-bottom: 12px; color: #1e293b;">一对一辅导</h3>
+            <p style="color: #64748b; font-size: 14px; line-height: 1.8; margin-bottom: 20px;">根据学生个人情况定制专属学习方案，针对性强，效果显著。时间灵活预约。</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+              <span style="padding: 4px 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #64748b;">📅 灵活预约</span>
+              <span style="padding: 4px 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #64748b;">👥 1对1</span>
+              <span style="padding: 4px 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #64748b;">⏰ 自选时段</span>
             </div>
+            <div style="font-family: 'Noto Serif SC', serif; font-size: 28px; font-weight: 700; color: #10b981; margin-bottom: 20px;">¥200<span style="font-size: 14px; font-weight: 400; color: #94a3b8;">/课时</span></div>
+            <a href="/contact" class="btn btn-outline" style="width: 100%; text-align: center; border-color: #10b981; color: #10b981;">立即咨询</a>
           </div>
         </div>
       </div>
 
-      <!-- CTA -->
-      <div style="text-align: center;">
-        <p style="color: #666; font-size: 16px; margin-bottom: 24px;">所有课程均提供免费试听，欢迎来电咨询或到校参观了解详情</p>
-        <a href="/contact" style="display: inline-block; padding: 14px 40px; background: #1a73e8; color: white; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 600;">免费试听</a>
+      <!-- MD Content -->
+      <div class="prose fade-in" style="max-width: 800px; margin: 0 auto;">
+        <Content />
       </div>
     </div>
   </section>
 
-  <script>
-    if (window.innerWidth <= 768) {
-      const grids = document.querySelectorAll('[style*="grid-template-columns: repeat(3"]');
-      grids.forEach(grid => { grid.style.gridTemplateColumns = '1fr'; });
+  <style>
+    @media (max-width: 768px) {
+      [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
     }
-  </script>
+  </style>
 </Layout>
